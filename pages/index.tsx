@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Head from 'next/head'
 import Loading from "../components/loading/loading";
 
 export default function Home() {
@@ -21,6 +22,9 @@ export default function Home() {
 
   return (
     <>
+      <Head>
+        <title>NextJS Test</title>
+      </Head>
       My name is Jo
       <Loading isLoading={isLoading}/>
     </>
