@@ -1,0 +1,79 @@
+/* We should inline busy-loader.css here (web-pack) */
+.busy-blocker {
+    --loading-dot-size: 20px;
+    --loading-dot-spacing: 40px;
+
+    display: flex;
+    position: fixed; /* prevent scroll overflow effect on iOS */
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    opacity: 0;
+    transition-property: opacity;
+    transition-delay: 0;
+    transition-duration: 0.5s;
+}
+
+.busy-blocker--open {
+    pointer-events: auto; /* undo from .busy-blocker */
+    opacity: 1;
+    transition-delay: 1s;
+    transition-duration: 1s;
+}
+
+.busy-blocker__dots {
+    display: inline-block;
+    position: relative;
+    width: calc(var(--loading-dot-size) + var(--loading-dot-spacing) * 2);
+    height: var(--loading-dot-size);
+}
+
+.busy-blocker__dot {
+    position: absolute;
+    top: 0;
+    width: var(--loading-dot-size);
+    height: var(--loading-dot-size);
+    border-radius: 50%;
+    background: var(--primary-color);
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+
+.busy-blocker__dot:nth-child(1) {
+    left: 0;
+    animation: loading-zoomin 0.6s infinite;
+}
+
+.busy-blocker__dot:nth-child(2) {
+    left: 0;
+    animation: loading-move 0.6s infinite;
+}
+
+.busy-blocker__dot:nth-child(3) {
+    left: calc(var(--loading-dot-spacing));
+    animation: loading-move 0.6s infinite;
+}
+
+.busy-blocker__dot:nth-child(4) {
+    left: calc(var(--loading-dot-spacing) * 2);
+    animation: loading-zoomout 0.6s infinite;
+}
+
+@keyframes loading-zoomin {
+    0% { transform: scale(0); }
+    100% { transform: scale(1); }
+}
+
+@keyframes loading-zoomout {
+    0% { transform: scale(1); }
+    100% { transform: scale(0); }
+}
+
+@keyframes loading-move {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(var(--loading-dot-spacing), 0); }
+}
