@@ -1,10 +1,12 @@
 import React, { ReactNode } from "react";
+import { HamburgerIconContainer } from "../hamburger-icon/hamburger-icon.container";
 import { Logo } from "../logo/logo";
 import styles from "./header.module.css";
 
 export const HeaderLeft = () => {
 	return (
 		<>
+			<HamburgerIconContainer />&nbsp;
 			<Logo />
 		</>
 	);
