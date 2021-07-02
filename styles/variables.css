@@ -1,3 +1,12 @@
 :root {
   --primary-color: #009fdc;
+  --surface-color-rgb: 244, 244, 244; /* RGB values are used to be able to change opacity rgba() */
+  --surface-color: rgba(var(--surface-color-rgb), 1);
+
+  /* Text */
+  --font-family: roboto, arial, sans-serif;
+  --font-size: 14px;
+  --text-color: #3e4551;
+  --text-secondary-color: #999da3;
+  --text-disabled-color: #ddd;
 }

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Head from 'next/head'
 import Loading from "../components/loading/loading";
+import { Header, HeaderLeft } from "../components/header/header";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -25,7 +26,15 @@ export default function Home() {
       <Head>
         <title>NextJS Test</title>
       </Head>
-      My name is Jo
+      <div className="app">
+        <Header 
+          left={<HeaderLeft />}
+        />
+        <div>
+          <HamburgerMenuContainer />
+          My name is Jo
+        </div>
+      </div>
       <Loading isLoading={isLoading}/>
     </>
   )

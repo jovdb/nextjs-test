@@ -1,0 +1,12 @@
+.logo {
+	/* center image vertical */
+	display: flex;
+	align-items: center;
+}
+
+.logo__svg {
+	/* limit image size */
+	width: auto;
+	max-height: 40px;
+	max-width: 140px;
+}

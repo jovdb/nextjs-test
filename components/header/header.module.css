@@ -1,0 +1,27 @@
+.header {
+	display: flex;
+	position: relative;
+	justify-content: space-between;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+	padding: 5px;
+	background-color: var(--surface-color, #fefefe);
+	font-family: var(--font-family);
+	font-size: var(--font-size);
+	min-height: 60px;
+	color: var(--text-color);
+	overflow-x: scroll; /* If it doesn't fit, show scrollbar */
+}
+
+.header__left,
+.header__right {
+	display: flex;
+	align-items: center; /* vertical align items */
+}
+
+.header__right {
+	padding: 0 0.5em;
+	overflow: hidden; /* Prevent from growing if child doesn't fit (needed for iOS) */
+	flex-shrink: 1; /* Allow size smaller so we can measure larger CTA button */
+	flex-grow: 1; /* Make full available width */
+	min-width: 76px; /* Define a minimum size so it doesn't shrink smaller than the minimum CTA button */
+}
