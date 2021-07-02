@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Head from 'next/head'
 import Loading from "../components/loading/loading";
 import { Header, HeaderLeft } from "../components/header/header";
+import { RecoilRoot } from "recoil";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -22,7 +23,7 @@ export default function Home() {
   );
 
   return (
-    <>
+    <RecoilRoot>
       <Head>
         <title>NextJS Test</title>
       </Head>
@@ -36,6 +37,6 @@ export default function Home() {
         </div>
       </div>
       <Loading isLoading={isLoading}/>
-    </>
+    </RecoilRoot>
   )
 }
