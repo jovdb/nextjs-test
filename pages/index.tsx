@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Loading from "../components/loading/loading";
 import { Header, HeaderLeft } from "../components/header/header";
 import { RecoilRoot } from "recoil";
+import { HamburgerMenuContainer } from "../components/hamburger-menu/hamburger-menu.container";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
