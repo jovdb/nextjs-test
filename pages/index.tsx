@@ -9,11 +9,9 @@ import LoadingContainer from "../components/loading/loading-container";
 import { useLoading } from "../hooks/useLoading";
 
 export default function Index({
-  labels: { name },
+  name,
 }: {
-  labels: {
-    name: string;
-  };
+  name: string;
 }) {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -47,8 +45,8 @@ export default function Index({
           <HamburgerMenuContainer>
             <MenuContainer />
           </HamburgerMenuContainer>
-          TRANSLATED AT BUILD TIME: <br/>
-          {name}: Jo
+          Added at BUILD TIME: <br/>
+          Hello {name}
         </div>
       </div>
       <LoadingContainer />
@@ -56,11 +54,16 @@ export default function Index({
   )
 }
 
+
+
 export async function getStaticProps() {
-  const labels = await getLabels(["name"]);
+  const result = await fetch("https://api.github.com/users/jovdb")
+  const json = await result.json();
+  if (!result.ok) throw new Error(json.message || "Error");
+
   return {
     props: {
-      labels,
+      name: json.name,
     },
   }
 }
