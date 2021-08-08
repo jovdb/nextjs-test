@@ -1,11 +1,18 @@
 import React, { useEffect, useState } from "react";
 import Head from 'next/head'
-import Loading from "../components/loading/loading";
+import { getLabels } from "../hooks/useLabels";
 import { Header, HeaderLeft } from "../components/header/header";
 import { RecoilRoot } from "recoil";
 import { HamburgerMenuContainer } from "../components/hamburger-menu/hamburger-menu.container";
+import Loading from "../components/loading/loading";
 
-export default function Home() {
+export default function Index({
+  labels: { name },
+}: {
+  labels: {
+    name: string;
+  };
+}) {
   const [isLoading, setIsLoading] = useState(true);
 
   // Remove Blocking screen after 2 seconds
@@ -34,10 +41,20 @@ export default function Home() {
         />
         <div>
           <HamburgerMenuContainer />
-          My name is Jo
+          TRANSLATED AT BUILD TIME: <br/>
+          {name}: Jo
         </div>
       </div>
-      <Loading isLoading={isLoading}/>
+      <Loading isLoading={isLoading} />
     </RecoilRoot>
   )
+}
+
+export async function getStaticProps() {
+  const labels = await getLabels(["name"]);
+  return {
+    props: {
+      labels,
+    },
+  }
 }
