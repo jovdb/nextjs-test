@@ -4,8 +4,9 @@ import { getLabels } from "../hooks/useLabels";
 import { Header, HeaderLeft } from "../components/header/header";
 import { RecoilRoot } from "recoil";
 import { HamburgerMenuContainer } from "../components/hamburger-menu/hamburger-menu.container";
-import Loading from "../components/loading/loading";
 import { MenuContainer } from "../components/menu/menu-container";
+import LoadingContainer from "../components/loading/loading-container";
+import { useLoading } from "../hooks/useLoading";
 
 export default function Index({
   labels: { name },
@@ -31,8 +32,10 @@ export default function Index({
     [],
   );
 
+  useLoading(isLoading);
+
   return (
-    <RecoilRoot>
+    <>
       <Head>
         <title>NextJS Test</title>
       </Head>
@@ -48,8 +51,8 @@ export default function Index({
           {name}: Jo
         </div>
       </div>
-      <Loading isLoading={isLoading} />
-    </RecoilRoot>
+      <LoadingContainer />
+    </>
   )
 }
 
