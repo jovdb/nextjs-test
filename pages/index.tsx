@@ -5,6 +5,7 @@ import { Header, HeaderLeft } from "../components/header/header";
 import { RecoilRoot } from "recoil";
 import { HamburgerMenuContainer } from "../components/hamburger-menu/hamburger-menu.container";
 import Loading from "../components/loading/loading";
+import { MenuContainer } from "../components/menu/menu-container";
 
 export default function Index({
   labels: { name },
@@ -40,7 +41,9 @@ export default function Index({
           left={<HeaderLeft />}
         />
         <div>
-          <HamburgerMenuContainer />
+          <HamburgerMenuContainer>
+            <MenuContainer />
+          </HamburgerMenuContainer>
           TRANSLATED AT BUILD TIME: <br/>
           {name}: Jo
         </div>
