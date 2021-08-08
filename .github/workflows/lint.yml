@@ -1,0 +1,18 @@
+name: lint
+
+on: [push]
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name Install project dependencies...
+        run: npm install
+      - name: Lint project...
+        run: npm run lint
