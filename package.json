@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "docker:build": "docker build . --tag nextjs-test:latest",
+    "docker:run": "docker run --publish 3001:3000 --name nextjs-test nextjs-test"
   },
   "dependencies": {
     "next": "11.0.1",
